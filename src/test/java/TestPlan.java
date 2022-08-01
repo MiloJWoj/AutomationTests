@@ -1,8 +1,11 @@
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations. BeforeSuite;
 import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
 
 public class TestPlan {
 
@@ -30,12 +33,21 @@ public class TestPlan {
             System.out.println("Element displayed is :"+eleSelected);
 
             String str = driver.findElement(By.xpath("//html/body/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div/div[2]/div[2]/table/tbody/tr[1]/td/strong")).getText();
-            System.out.println(str);
+            String stringgg = str.replace(',','.');
+            System.out.println(stringgg);
+
 
             driver.get(Utils.SECOND_URL);
+            driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+            String strin=driver.findElement(By.xpath("(//*[@class='line'])[4]")).getText();
+            String stringg = strin.replaceFirst("<Cena>","");
+            String st = stringg.replaceFirst("</Cena>","");
 
+            String fullstri = st.trim();
+            System.out.println(fullstri);
 
-        }
+            System.out.println(fullstri==stringgg);
+    }
 
         @AfterSuite
 
