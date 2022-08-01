@@ -29,8 +29,8 @@ public class TestPlan {
             hoverElement.click();
 
             driver.findElement(By.xpath("//*[text()='Surowce']")).click();
-            boolean eleSelected= driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[2]/div[2]/div[1]")).isDisplayed();
-            System.out.println("Element displayed is :"+Display);
+            boolean eleSelected= driver.findElement(By.xpath("//html/body/div[3]/div[1]/div[2]/div[2]/div[1]")).isDisplayed();
+            System.out.println("Element displayed is :"+eleSelected);
         }
 
         @AfterSuite
